@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Expense Tracker</h1>
+        <p>Manage your income and expenses</p>
+    </header>
+
+    <main class="container">
+        <section class="summary">
+
+            <div class="card">
+                <h3>Total Balance</h3>
+                <h2 id="balance">₹0.00</h2>
+            </div>
+
+            <div class="card">
+                <h3>Total Income</h3>
+                <h2 id="income">₹0.00</h2>
+            </div>
+
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <h2 id="expense">₹0.00</h2>
+            </div>
+
+        </section>
+
+
+        <section class="charts">
+
+            <div class="chart-card">
+                <h2>Income vs Expense</h2>
+                <canvas id="incomeExpenseChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h2>Expenses by Category</h2>
+                <canvas id="categoryChart"></canvas>
+            </div>
+
+        </section>
+
+
+  
+        <section class="form-section">
+
+            <h2>Add Transaction</h2>
+
+            <form id="transactionForm">
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Transaction title"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <select id="type" required>
+                    <option value="">Select Type</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+
+                <input
+                    type="text"
+                    id="category"
+                    placeholder="Category"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="note"
+                    placeholder="Note (optional)"
+                >
+
+                <button type="submit">
+                    Add Transaction
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="history">
+
+            <h2>Transaction History</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="transactionList">
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
